@@ -17,7 +17,7 @@ class About_widget extends \Elementor\Widget_Base {
 
 	public function get_categories() {
 
-        return [ 'general' ];
+        return [ 'picchi-elementor-extension' ];
     }
 
     protected function register_controls() {

@@ -156,7 +156,7 @@ final class picchi_elementor_extension {
 		add_action( 'elementor/controls/controls_registered', [ $this, 'init_controls' ] );
 
         // Category Init
-		// add_action( 'elementor/init', [ $this, 'elementor_common_category' ] );
+		add_action( 'elementor/init', [ $this, 'elementor_common_category' ] );
 
 	}
 
@@ -246,16 +246,22 @@ final class picchi_elementor_extension {
 	public function init_widgets() {
 
 		require_once( __DIR__ . '/widgets/heading-widget.php' );
+		require_once( __DIR__ . '/widgets/heading-widget-extra.php' );
 		require_once( __DIR__ . '/widgets/banner-widget.php' );
 		require_once( __DIR__ . '/widgets/about-widget.php' );
+		require_once( __DIR__ . '/widgets/extra-widget.php' );
+		// require_once( __DIR__ . '/widgets/lwsk-widget.php' );
 		// require_once( __DIR__ . '/widgets/btn-eidget.php' );
 
 		// added by EWA - EWA own Register widgets, loading all widget names
 
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Heading_widget() );
+		// \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Heading_widget() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Banner_widget() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \About_widget() );
-		// \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Button_widget() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Heading_widget_extra() );
+		// \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \LWHH_Blank_Widget() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Extra_widget() );
 
 	}
 
@@ -295,18 +301,20 @@ final class picchi_elementor_extension {
 	}
 
      // Custom Category
-    // public function elementor_common_category () {
+    public function elementor_common_category () {
 
-	//    \Elementor\Plugin::$instance->elements_manager->add_category( 
-	//    	'picchi-elementor-extension',
-	//    	[
-	//    		'title' => __( 'Picchi Category', 'picchi-elementor-extension' ),
-	//    		'icon' => 'fa fa-plug', //default icon
-	//    	],
-	//    	2 // position
-	//    );
+	   \Elementor\Plugin::$instance->elements_manager->add_category( 
+	   	'picchi-elementor-extension',
+	   	[
+	   		'title' => __( 'Picchi Category', 'picchi-elementor-extension' ),
+	   		'icon' => 'fa fa-plug', //default icon
+	   	],
+	   	2 // position
+	   );
 
-	// }
+	}
+
+	
 
 
 }

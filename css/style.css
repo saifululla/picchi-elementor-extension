@@ -73,7 +73,7 @@ body {
 .section-title h4 {
 	font-size: 16px;
 	font-weight: 600;
-	color: #777;
+
 }
 .section-title h2 {
 	font-size: 32px;
@@ -90,7 +90,7 @@ body {
 	font-weight: 300;
 	font-size: 14px;
 }
-.black-bg .section-title h2, .black-bg .section-title h4, .black-bg .section-title p {
+.black-bg {
   color:#fff
 }
 .section-title h2:before {
